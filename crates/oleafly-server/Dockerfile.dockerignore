@@ -15,11 +15,12 @@
 !vite.web.config.ts
 !e2e/vite-client-without-transport.ts
 !scripts/production-hook-audit.mjs
-!scripts/build-synctex-wasm.mjs
+!scripts/build-wasm.mjs
 !src
 !web
 web/dist
 web/src/synctex/oleafly_synctex.wasm
+web/src/typst/oleafly_typst.wasm
 **/target
 **/node_modules
 **/.DS_Store
