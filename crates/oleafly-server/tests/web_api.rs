@@ -215,7 +215,10 @@ async fn the_app_page_carries_its_security_headers_and_the_bare_path_moves_to_th
             "{policy}"
         );
         assert!(
-            policy.contains(&format!("connect-src 'self' {DEFAULT_WEB_CONNECT_SRC};")),
+            policy.contains(&format!(
+                "connect-src 'self' {};",
+                DEFAULT_WEB_CONNECT_SRC.join(" ")
+            )),
             "{policy}"
         );
         assert!(
@@ -291,7 +294,9 @@ async fn the_page_policy_names_the_origins_the_server_is_set_to_allow() {
         "{policy}"
     );
     assert!(policy.contains("'wasm-unsafe-eval'"), "{policy}");
-    assert!(!policy.contains(DEFAULT_WEB_CONNECT_SRC), "{policy}");
+    for origin in DEFAULT_WEB_CONNECT_SRC {
+        assert!(!policy.contains(origin), "{policy}");
+    }
 }
 
 const ABSTRACT: &str = "01920000-0000-7000-8000-0000000000e2";

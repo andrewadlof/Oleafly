@@ -63,6 +63,8 @@ fixtures/research-seeds/.validation.json
 
 # The browser app's SyncTeX WebAssembly, built by `pnpm synctex:wasm`
 web/src/synctex/oleafly_synctex.wasm
+# and its Typst compiler, built by `pnpm typst:wasm`
+web/src/typst/oleafly_typst.wasm
 
 # Built by scripts/build-artifact-runtime.mjs for Notes artifact frames
 public/artifact-runtime/

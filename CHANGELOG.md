@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Double-click a `.tex`, `.typ` or `.md` file in Finder, File Explorer or a Linux file manager and it opens in Oleafly, in a tab inside a project for its folder. Oleafly also becomes the default app for these files, on macOS and Linux the first time it runs and on Windows when it's installed. If you already picked another app for one of them, that app stays the default.
+- Typst projects compile in the browser app. Select Compile, or press Ctrl+S (Cmd+S on a Mac), and the PDF appears beside the source, then updates a moment after you stop typing, as in the app. Errors and warnings are listed with their lines, and owners and editors share the PDF with the project. `@preview` packages download from Typst Universe as the document imports them, so Oleafly Server now allows `https://packages.typst.org` in `OLEAFLY_WEB_CONNECT_SRC` by default. The compiler is Typst 0.15.1, the version the app bundles, and it downloads on a project's first compile, about 15 MB once. LaTeX projects don't compile in the browser yet.
 - You can now set the reasoning effort for a custom provider. Turn on Send reasoning effort when you add or edit it, and the effort menu in chat offers Low, Medium and High, which Oleafly sends as `reasoning_effort`. If the server rejects the field, testing the model tells you.
 
 ### Fixed

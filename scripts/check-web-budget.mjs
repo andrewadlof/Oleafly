@@ -10,6 +10,9 @@ const limits = {
   totalJavaScript: 7_570_000,
   wasm: {
     oleafly_synctex: 360_000,
+    // Typst with its bundled fonts (~9.7 MB of them) and data. Only loaded on a
+    // Typst project's first compile, never by a reader who doesn't compile.
+    oleafly_typst: 37_500_000,
   },
 };
 

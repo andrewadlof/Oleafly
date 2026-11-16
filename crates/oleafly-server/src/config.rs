@@ -55,7 +55,10 @@ pub const DEFAULT_S3_REGION: &str = "us-east-1";
 pub const OPEN_SIGNUP_STORAGE_MB: u64 = 100;
 pub const OPEN_SIGNUP_PROJECTS: u32 = 50;
 pub const OPEN_SIGNUP_UPLOADS_PER_HOUR: u32 = 300;
-pub const DEFAULT_WEB_CONNECT_SRC: &str = "https://mirrors.oleafly.com";
+/// The Oleafly mirror, and Typst Universe for the `@preview` packages a Typst
+/// document imports when it compiles in the browser.
+pub const DEFAULT_WEB_CONNECT_SRC: &[&str] =
+    &["https://mirrors.oleafly.com", "https://packages.typst.org"];
 const WEB_CONNECT_SRC: &str = "OLEAFLY_WEB_CONNECT_SRC";
 
 #[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
@@ -413,7 +416,10 @@ impl ServerConfig {
         let web = source.flag("OLEAFLY_WEB", false)?;
         let web_connect_src = match source.written(WEB_CONNECT_SRC) {
             Some(raw) => parse_connect_src(&raw)?,
-            None => vec![DEFAULT_WEB_CONNECT_SRC.to_string()],
+            None => DEFAULT_WEB_CONNECT_SRC
+                .iter()
+                .map(ToString::to_string)
+                .collect(),
         };
         let sign_in = parse_sign_in_limits(&source)?;
         let behind_proxy = source.flag("OLEAFLY_BEHIND_PROXY", false)?;
@@ -2817,7 +2823,7 @@ mod tests {
     #[test]
     fn the_browser_app_connects_to_the_mirror_unless_other_origins_are_listed() {
         let default = load(&[BASE]).unwrap();
-        assert_eq!(default.web_connect_src, [DEFAULT_WEB_CONNECT_SRC]);
+        assert_eq!(default.web_connect_src, DEFAULT_WEB_CONNECT_SRC);
         for empty in ["", "  "] {
             let only_self = load(&[BASE, ("OLEAFLY_WEB_CONNECT_SRC", empty)]).unwrap();
             assert!(only_self.web_connect_src.is_empty(), "{empty:?}");

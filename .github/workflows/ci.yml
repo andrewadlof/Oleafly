@@ -195,8 +195,9 @@ jobs:
       - name: Typecheck & build
         run: pnpm build
 
-      # The browser app runs the desktop's SyncTeX as WebAssembly, which
-      # `pnpm web:test` and `web:build` build from crates/oleafly-synctex-wasm.
+      # The browser app runs the desktop's SyncTeX and a Typst compiler as
+      # WebAssembly, which `pnpm web:test` and `web:build` build from
+      # crates/oleafly-synctex-wasm and crates/oleafly-typst-wasm.
       - name: Install Rust toolchain with the WebAssembly target
         uses: ./.github/actions/rust-toolchain
         with:

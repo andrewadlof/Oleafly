@@ -41,4 +41,4 @@ services:
       - key: OLEAFLY_WEB
         value: "false"
       # - key: OLEAFLY_WEB_CONNECT_SRC
-      #   value: "https://mirrors.oleafly.com"
+      #   value: "https://mirrors.oleafly.com https://packages.typst.org"

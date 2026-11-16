@@ -26,6 +26,7 @@ making document engines, filesystem policy, and external integrations explicit.
 | `crates/oleafly-doctools/` | Document statistics, SyncTeX file reading and Pandoc exports, shared by the app and the CLI |
 | `crates/oleafly-synctex/` | SyncTeX parsing and forward and inverse search, with no file access, shared by the app, the CLI and the browser app |
 | `crates/oleafly-synctex-wasm/` | `oleafly-synctex` built to WebAssembly for the browser app (`pnpm synctex:wasm`) |
+| `crates/oleafly-typst-wasm/` | Typst built to WebAssembly, the browser app's compiler for Typst projects (`pnpm typst:wasm`) |
 | `crates/oleafly-downloads/` | TeX toolchain, Typst and template pack downloads, shared by the app and the CLI |
 | `src/` | Application shell, stores, Tauri adapters, contributions, and UI |
 | `packages/editor/` | Engine-neutral editor and language-service primitives |

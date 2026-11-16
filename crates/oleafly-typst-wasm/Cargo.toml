@@ -1,0 +1,29 @@
+[package]
+name = "oleafly-typst-wasm"
+version = "0.1.0"
+description = "The browser app's Typst compiler: Typst behind a small C ABI for WebAssembly"
+license = "AGPL-3.0-or-later"
+publish = false
+edition = "2021"
+# Typst 0.15 needs Rust 1.92, so this crate is outside the 1.87 MSRV check;
+# it only ever builds with the pinned toolchain, for the browser app.
+rust-version = "1.92"
+
+# Built by scripts/build-typst-wasm.mjs with
+# `--target wasm32-unknown-unknown --profile wasm-release`. The Typst version
+# matches BUNDLED_TYPST_VERSION in scripts/typst/build-toolchain-catalog.mjs,
+# so a document compiles the same in the browser as in the app.
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+comemo = "0.5"
+ecow = "0.2"
+flate2 = { version = "1.0", default-features = false, features = ["rust_backend"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tar = { version = "0.4", default-features = false }
+typst = "=0.15.1"
+typst-layout = "=0.15.1"
+typst-kit = { version = "=0.15.1", default-features = false, features = ["embedded-fonts"] }
+typst-pdf = "=0.15.1"

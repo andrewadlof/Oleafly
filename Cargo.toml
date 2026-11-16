@@ -27,9 +27,10 @@ opt-level = 3
 [profile.server-release.package."*"]
 opt-level = 3
 
-# The browser app's SyncTeX WebAssembly (crates/oleafly-synctex-wasm, built
-# by scripts/build-synctex-wasm.mjs). Every reader downloads it, so it is
-# built for size, and a panic aborts instead of carrying unwinding code.
+# The browser app's WebAssembly (crates/oleafly-synctex-wasm and
+# crates/oleafly-typst-wasm, built by scripts/build-wasm.mjs). Readers
+# download it, so it is built for size, and a panic aborts instead of
+# carrying unwinding code.
 [profile.wasm-release]
 inherits = "release"
 opt-level = "s"

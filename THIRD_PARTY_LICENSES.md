@@ -91,6 +91,41 @@ are compiled into it:
 | serde, serde_json | MIT OR Apache-2.0 |
 | unicode-normalization | MIT OR Apache-2.0 |
 
+It also runs Typst compiled to WebAssembly (`oleafly_typst.wasm`), which
+compiles Typst projects in the browser. It loads on a Typst project's first
+compile. These crates are compiled into it:
+
+| Crate | License |
+|---|---|
+| arrayvec, az, base64, biblatex, bitflags, bumpalo, by_address, cfg-if, citationberg, cobs, comemo, comemo-macros, crc32fast, crossbeam-deque, crossbeam-epoch, crossbeam-utils, data-url, deranged, displaydoc, ecow, either, embedded-io, euclid, fdeflate, filetime, flate2, font-types, form_urlencoded, futures-channel, futures-core, futures-io, futures-macro, futures-sink, futures-task, futures-util, getrandom, gif, glidesort, guillotiere, half, hash32, hashbrown, hayagriva, heapless, heck, hypher, idna, image, image-webp, itoa, js-sys, krilla, krilla-svg, linked-hash-map, lock_api, log, memmap2, num-bigint, num-conv, num-integer, num-traits, once_cell, palette, palette_derive, palette_math, parking_lot, parking_lot_core, paste, pdf-writer, percent-encoding, png, polycool, postcard, powerfmt, ppv-lite86, proc-macro-hack, proc-macro2, quick-error, quote, rand, rand_chacha, rand_core, rand_distr, rayon, rayon-core, read-fonts, regex, regex-automata, regex-syntax, roxmltree, scopeguard, semver, serde, serde_core, serde_derive, serde_json, serde_path_to_error, serde_spanned, serde_yaml, siphasher, skrifa, smallvec, stable_deref_trait, subsetter, syn, tar, thin-vec, thiserror, thiserror-impl, time, time-core, time-macros, toml, toml_datetime, toml_edit, ttf-parser, two-face, unic-langid, unic-langid-impl, unic-langid-macros, unic-langid-macros-impl, unicode-bidi, unicode-bidi-mirroring, unicode-ccc, unicode-math-class, unicode-normalization, unicode-properties, unicode-script, unicode-segmentation, unicode-vo, unscanny, url, wasm-bindgen, wasm-bindgen-macro, wasm-bindgen-macro-support, wasm-bindgen-shared, wasmi, wasmi_collections, wasmi_core, wasmi_ir, weezl, write-fonts, xmp-writer, yaml-rust | MIT OR Apache-2.0 |
+| bincode, chinese-number, chinese-variant, color_quant, core_maths, enum-ordinalize, enum-ordinalize-derive, fancy-regex, fax, float-cmp, fontdb, imagesize, infer, libm, lipsum, phf, phf_generator, phf_macros, phf_shared, pico-args, plist, quick-xml, rgb, rust_decimal, rustybuzz, simd-adler32, slab, spin, strict-num, strum, strum_macros, synstructure, syntect, tiff, typed-arena, unsafe-libyaml, winnow, xmlwriter, zmij | MIT |
+| bit-set, bit-vec, color, equivalent, fastrand, fearless_simd, glifo, hayro, hayro-ccitt, hayro-cmap, hayro-interpret, hayro-jbig2, hayro-jpeg2000, hayro-postscript, hayro-svg, hayro-syntax, hayro-write, idna_adapter, indexmap, kurbo, linebender_resource_handle, peniko, pin-project-lite, portable-atomic, resvg, rustc-hash, simplecss, svgtypes, usvg, utf16_iter, utf8_iter, utf_types, vello_common, vello_cpu, write16 | Apache-2.0 OR MIT |
+| icu_collator, icu_collator_data, icu_collections, icu_locale, icu_locale_core, icu_locale_data, icu_normalizer, icu_normalizer_data, icu_properties, icu_properties_data, icu_provider, icu_provider_blob, icu_segmenter, icu_segmenter_data, litemap, potential_utf, tinystr, writeable, yoke, yoke-derive, zerofrom, zerofrom-derive, zerotrie, zerovec, zerovec-derive | Unicode-3.0 |
+| approx, ciborium, ciborium-io, ciborium-ll, codex, typst, typst-assets, typst-eval, typst-html, typst-kit, typst-layout, typst-library, typst-macros, typst-pdf, typst-realize, typst-svg, typst-syntax, typst-timing, typst-utils | Apache-2.0 |
+| aho-corasick, byteorder, byteorder-lite, csv, csv-core, memchr, same-file, walkdir | Unlicense OR MIT |
+| arrayref, kamadak-exif, mutate_once | BSD-2-Clause |
+| foldhash, slotmap, zlib-rs | Zlib |
+| tinyvec_macros, zune-core, zune-jpeg | MIT OR Apache-2.0 OR Zlib |
+| moxcms, pic-scale, pxfm | BSD-3-Clause OR Apache-2.0 |
+| bytemuck, bytemuck_derive, tinyvec | Zlib OR Apache-2.0 OR MIT |
+| tiny-skia, tiny-skia-path | BSD-3-Clause |
+| zerocopy, zerocopy-derive | BSD-2-Clause OR Apache-2.0 OR MIT |
+| roman-numerals-rs | 0BSD OR CC0-1.0 |
+| miniz_oxide | MIT OR Zlib OR Apache-2.0 |
+| wasmparser | Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT |
+| unicode-ident | (MIT OR Apache-2.0) AND Unicode-3.0 |
+| ryu | Apache-2.0 OR BSL-1.0 |
+| fnv | Apache-2.0  OR  MIT |
+| adler2 | 0BSD OR MIT OR Apache-2.0 |
+
+`oleafly_typst.wasm` embeds Typst's default fonts, from `typst-assets`:
+
+| Font | License |
+|---|---|
+| New Computer Modern, New Computer Modern Math | GUST Font License |
+| Libertinus Serif | SIL Open Font License 1.1 |
+| DejaVu Sans Mono | Bitstream Vera Fonts License, with DejaVu changes in the public domain |
+
 ## Frontend (JavaScript / npm, bundled into the app)
 
 | Package | License |

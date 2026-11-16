@@ -7,7 +7,7 @@ publish = false
 edition = "2021"
 rust-version = "1.87"
 
-# Built by scripts/build-synctex-wasm.mjs with
+# Built by scripts/build-wasm.mjs with
 # `--target wasm32-unknown-unknown --profile wasm-release`.
 [lib]
 crate-type = ["cdylib"]

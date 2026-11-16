@@ -5,5 +5,8 @@ export async function browserEngines(): Promise<readonly BrowserEngine[]> {
     const { createFakeEngine } = await import("@oleafly/compile-port/testing");
     return [createFakeEngine()];
   }
-  return [];
+  // Only the engine's small page-side half loads here. The compiler itself
+  // is a worker that loads on the first compile.
+  const { createTypstEngine } = await import("../typst");
+  return [createTypstEngine()];
 }
